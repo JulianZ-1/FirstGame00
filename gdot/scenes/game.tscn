@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cjagnyyq3agxy"]
+[gd_scene load_steps=15 format=3 uid="uid://cjagnyyq3agxy"]
 
 [ext_resource type="PackedScene" uid="uid://dnpr8llw30gol" path="res://scenes/player.tscn" id="1_yxqx3"]
 [ext_resource type="Texture2D" uid="uid://bvbrauwoq7h6x" path="res://assets/sprites/world_tileset.png" id="2_61tfd"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://duh0y5b15c7ki" path="res://scenes/coin.tscn" id="4_s3eu0"]
 [ext_resource type="PackedScene" uid="uid://cyfu8mb1sucuj" path="res://scenes/killzone.tscn" id="5_pywic"]
 [ext_resource type="PackedScene" uid="uid://j005bdyxxwu4" path="res://scenes/slime.tscn" id="6_j48vj"]
+[ext_resource type="Script" path="res://scripts/slime.gd" id="7_lj5ey"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xskb"]
 texture = ExtResource("2_61tfd")
@@ -410,10 +411,10 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_0xskb")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xxjf8"]
+distance = 8.0
 
-[sub_resource type="Animation" id="Animation_gisfs"]
-resource_name = "new_animation"
-length = 1.5
+[sub_resource type="Animation" id="Animation_8uxwk"]
+resource_name = "Move"
 loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -422,10 +423,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(210, -19), Vector2(264, -19)]
+"values": [Vector2(210, -19), Vector2(301, -19)]
 }
 
 [sub_resource type="Animation" id="Animation_kubgg"]
@@ -443,8 +444,9 @@ tracks/0/keys = {
 "values": [Vector2(210, -19)]
 }
 
-[sub_resource type="Animation" id="Animation_8uxwk"]
-resource_name = "Move"
+[sub_resource type="Animation" id="Animation_gisfs"]
+resource_name = "new_animation"
+length = 1.5
 loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -453,10 +455,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(210, -19), Vector2(301, -19)]
+"values": [Vector2(210, -19), Vector2(264, -19)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5tnih"]
@@ -514,4 +516,5 @@ libraries = {
 autoplay = "Move"
 
 [node name="Slime" parent="." instance=ExtResource("6_j48vj")]
-position = Vector2(137, -44)
+position = Vector2(80, -25)
+script = ExtResource("7_lj5ey")
