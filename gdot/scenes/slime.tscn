@@ -49,16 +49,8 @@ sprite_frames = SubResource("SpriteFrames_da8wv")
 autoplay = "default"
 frame_progress = 0.796
 
-[node name="Killzone" parent="." instance=ExtResource("2_gidyl")]
+[node name="Killzone" parent="AnimatedSprite2D" instance=ExtResource("2_gidyl")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Killzone"]
 position = Vector2(0, 6)
 shape = SubResource("CircleShape2D_phods")
-
-[node name="RayCastRight" type="RayCast2D" parent="."]
-position = Vector2(1, 6)
-target_position = Vector2(8, 0)
-
-[node name="RayCastLeft" type="RayCast2D" parent="."]
-position = Vector2(1, 6)
-target_position = Vector2(-11, -1)
