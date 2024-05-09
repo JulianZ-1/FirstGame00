@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://b0ubhi5ln73tc"]
+
+[ext_resource type="Texture2D" uid="uid://bvbrauwoq7h6x" path="res://assets/sprites/world_tileset.png" id="1_tgrvk"]
+[ext_resource type="PackedScene" uid="uid://cyfu8mb1sucuj" path="res://scenes/killzone.tscn" id="2_dhr5q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1i5t"]
+atlas = ExtResource("1_tgrvk")
+region = Rect2(128, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfdr1"]
+atlas = ExtResource("1_tgrvk")
+region = Rect2(112, 80, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8hblw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1i5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfdr1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tmdhm"]
+size = Vector2(16, 13)
+
+[node name="Mushroom" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8hblw")
+autoplay = "default"
+frame_progress = 0.0358893
+
+[node name="Killzone" parent="." instance=ExtResource("2_dhr5q")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_tmdhm")

@@ -39,8 +39,8 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_phods"]
-radius = 5.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jxw11"]
+size = Vector2(14, 12)
 
 [node name="Slime" type="Node2D"]
 
@@ -49,8 +49,24 @@ sprite_frames = SubResource("SpriteFrames_da8wv")
 autoplay = "default"
 frame_progress = 0.796
 
-[node name="Killzone" parent="AnimatedSprite2D" instance=ExtResource("2_gidyl")]
+[node name="Killzone" parent="." instance=ExtResource("2_gidyl")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Killzone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(0, 6)
-shape = SubResource("CircleShape2D_phods")
+shape = SubResource("RectangleShape2D_jxw11")
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(1, 6)
+target_position = Vector2(8, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(1, 6)
+target_position = Vector2(-11, -1)
+
+[node name="RayCastFloorRight" type="RayCast2D" parent="."]
+position = Vector2(8, 0)
+target_position = Vector2(0, 29)
+
+[node name="RayCastFloorLeft" type="RayCast2D" parent="."]
+position = Vector2(-8, 1)
+target_position = Vector2(0, 29)

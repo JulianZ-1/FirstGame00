@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfgvqopssmdje"]
+
+[ext_resource type="AudioStream" uid="uid://bcu3tbusmcy12" path="res://assets/sounds/Ludum Dare 38 - 01.ogg" id="1_pwaqt"]
+
+[node name="Music" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_pwaqt")
+autoplay = true
+bus = &"Music"

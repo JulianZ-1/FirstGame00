@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://duy4pj0t5ifr0"]
+
+[ext_resource type="Script" path="res://scripts/coinCount.gd" id="1_26c01"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="coinCount" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Coins: "
+script = ExtResource("1_26c01")
